@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TBS</title>
+    @@include('import-common-css.html')
+</head>
+<body>
+
+<div class="web">
+    <!--top navbar-->
+    <div class="uk-flex top">
+        <div class="logo">
+            <img src="../img/logo.png">
+        </div>
+        <nav class="uk-navbar-container uk-margin-auto uk-navbar-transparent uk-light">
+            <ul class="uk-navbar-nav navbar">
+                <li><a href="#">运行监测</a></li>
+                <li><a href="#" id="navbar-active">业务配置</a></li>
+                <li><a href="#">模板管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </nav>
+        <ul class="uk-flex-inline admin">
+            <li><a href="#"><img src="../img/icon_ip.png"></a></li>
+            <li class="name">
+                <span class=" uk-float-right" type="button">Admin0366<span uk-icon="icon:  triangle-down"></span></span>
+                <div uk-dropdown="pos:bottom-justify">
+                    <ul class="uk-nav uk-dropdown-nav uk-text-center">
+                        <li><a href="#"><span uk-icon="icon:   user"></span>个人设置</a></li>
+                        <li><a href="#"><span uk-icon="icon:   unlock"></span>修改密码</a></li>
+                        <li><a href="#"><span uk-icon="icon:   sign-out"></span>退出程序</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--top end-->
+
+    <div class="uk-flex">
+        <!--left nav-->
+        <div class="left">
+            @@include('nav.html')
+        </div>
+        <!--left end-->
+
+        <!--middle main-->
+        <div class="uk-flex middle">
+            <div class="main">
+                <div class="uk-flex main-top">
+                    <div class="corner">
+                        <div></div>
+                    </div>
+                    <div class="main-title uk-flex" style="justify-content: space-between"><span>设备业务</span><span
+                            style="margin-right:20px;"><button class="uk-button-green" id="toggle-passway">隐藏通道</button></span>
+                    </div>
+                </div>
+                <div class="main-bottom">
+                    <div class="real">
+                        @@include('through.html')
+                    </div>
+                </div>
+
+            </div>
+            <!-- MAIN RIGHT-->
+            <div class="uk-flex uk-flex-column cards" id="right-top">
+                <div class="uk-card">
+                    <div class="uk-flex main-top">
+                        <div class="corner">
+                            <div></div>
+                        </div>
+                        <div class="main-title"><span>通道1</span></div>
+                    </div>
+                    <div class="real">
+                        <!--@@include('posi-direct.html')-->
+                        <!--@@include('deposi-direct.html')-->
+                        @@include('pass-status.html')
+                    </div>
+                </div>
+
+                <div class="uk-card  uk-margin-top">
+                    <div class="uk-flex main-top">
+                        <div class="corner">
+                            <div></div>
+                        </div>
+                        <div class="main-title"><span>通道1</span></div>
+                    </div>
+                    <div class="real">
+                        <!--@@include('posi-direct.html')-->
+                        <!--@@include('deposi-direct.html')-->
+                        @@include('pass-status.html')
+                    </div>
+                </div>
+                <div class="uk-card  uk-margin-top">
+                    <div class="uk-flex main-top">
+                        <div class="corner">
+                            <div></div>
+                        </div>
+                        <div class="main-title"><span>通道1</span></div>
+                    </div>
+                    <div class="real">
+                        <!--@@include('posi-direct.html')-->
+                        <!--@@include('deposi-direct.html')-->
+                        @@include('pass-status.html')
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--middle end-->
+    </div>
+</div>
+
+
+<!--<script>
+    $(function () {
+        /**
+         * switch初始化
+         * @type {Element}
+         */
+        var el = document.querySelector('.checkbox-switch'),
+            options = {
+                onText: '开',
+                offText: '关',
+                showText: true
+            }
+        options_small = {
+            onText: '开',
+            offText: '关',
+            size: 'small'
+        }
+
+        var mySwitch = new Switch(el, options);
+        for (let k = 1; k < 9; k++) {
+            new Switch(document.getElementById("td-switch-" + k), options_small);
+        }
+
+
+        /**
+         * 绑定面板事件
+         * @type {number}
+         */
+        let barwidth = 5,
+            ele = 4;
+        for (let i = 2; i <= 2 + barwidth; i++) {
+            for (let j = 0; j < 4; j++)
+                $(".column-" + i).find(".uk-flex-column-box")[j].addEventListener('click', function () {
+                    UIkit.modal(document.getElementById("modal-card")).show();
+                })
+        }
+        for (let i = 10; i <= 10 + barwidth; i++) {
+            for (let j = 0; j < 4; j++)
+                $(".column-" + i).find(".uk-flex-column-box")[j].addEventListener('click', function () {
+                    UIkit.modal(document.getElementById("modal-card")).show();
+                })
+        }
+
+        /**
+         * 绑定通道事件
+         * @type {number}
+         */
+        for (let x = 0; x < 48; x++) {
+            document.getElementsByClassName("flex-box-margin")[x].addEventListener('click', function () {
+                UIkit.modal(document.getElementById("pass-card")).show();
+            })
+        }
+
+
+        /**
+         * 绑定hover删除
+         *
+         */
+        for (let i = 4; i < 7; i++) {
+            let temp = [];
+            $("#sign-pg-body").find("tr")[0].children[i].addEventListener('mouseenter', function () {
+                let icon = document.createElement("img");
+                temp[i] = $("#sign-pg-body").find("tr")[0].children[i].innerHTML;
+                $("#sign-pg-body").find("tr")[0].children[i].innerHTML = "";
+                icon.style.height = "1rem"
+                icon.src = "../img/btn_delete.png";
+                icon.onclick = function () {
+                    temp[i] = '无';
+                }
+                $("#sign-pg-body").find("tr")[0].children[i].appendChild(icon);
+
+                $("#sign-pg-body").find("tr")[0].children[i].addEventListener('mouseleave', function () {
+
+
+                    $("#sign-pg-body").find("tr")[0].children[i].innerHTML = temp[i]
+                });
+
+
+            })
+
+
+        }
+
+        /**
+         * echarts  板卡
+         */
+        /* var bancard = echarts.init(document.getElementById("container-view"));
+         var option = {
+             title:{
+                 text: '板卡容量',
+                 x:'left',
+                 y:'bottom',
+                 left:'24%',
+                 top: '72%',
+                 textStyle: {
+                     color: '#000'
+                 }  
+             },
+             tooltip: {
+                 trigger: 'item',
+                 formatter: "{a} <br/>{b} : {c} ({d}%)"
+             },
+             legend: {
+                 orient: 'vertical',
+                 x:'right',
+                 y:'middle',
+                 left:'160',
+                 top:'20%',
+                 data: ['在位板卡', '警告板卡', '不在位']
+             },
+             series: [
+                 {
+                     name: '板卡容量',
+                     type: 'pie',
+                     radius: '55%',
+                     center: ['40%', '40%'],
+                     avoidLabelOverlap: false,
+                     label: {
+                         normal: {
+                             show: false,
+                             position: 'center'
+                         }
+                     },
+                     labelLine: {
+                         normal: {
+                             show: false
+                         }
+                     },
+ 
+                     data: [
+                         {value: 510, name: '在位板卡'},
+                         {value: 234, name: '警告板卡'},
+                         {value: 848, name: '不在位'}
+                     ],
+ 
+                 }
+             ]
+         };
+         bancard.setOption(option);*/
+        var passard1 = echarts.init(document.getElementById("pass-view-left"));
+        var passard2 = echarts.init(document.getElementById("pass-view-right"));
+        var option1 = {
+            title: {
+                text: '输入端容量',
+                x: 'left',
+                y: 'bottom',
+                left: '12%',
+                top: '72%',
+                textStyle: {
+                    color: '#000'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+
+            series: [
+                {
+                    name: '输入端容量',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '40%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+
+                    data: [
+                        {value: 810, name: 'SDH'},
+                        {value: 234, name: '10Ge'},
+                        {value: 148, name: '未知'},
+                        {value: 50, name: '无信号'},
+                    ],
+
+                }
+            ]
+        };
+        var option2 = {
+            title: {
+                text: '输出端容量',
+                x: 'left',
+                y: 'bottom',
+                left: '12%',
+                top: '72%',
+                textStyle: {
+                    color: '#000'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+
+            series: [
+                {
+                    name: '输出端容量',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '40%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+
+                    data: [
+                        {value: 810, name: 'SDH'},
+                        {value: 234, name: '10Ge'},
+                        {value: 148, name: '未知'},
+                        {value: 50, name: '无信号'},
+                    ],
+
+                }
+            ]
+        };
+        passard1.setOption(option1);
+        passard2.setOption(option2);
+
+    });
+
+    /*
+       新建交叉
+       * */
+    $("#create_branch").click(function () {
+        UIkit.modal(document.getElementById("creBranch")).show();
+    })
+
+</script>
+<script>
+    /**
+     * 输入输出dom创建
+     */
+    
+        let dom = document.getElementsByClassName("uk-flex-container"),
+        tainlen = dom.length;
+        
+       
+    for (let i = 0; i < tainlen; i++) {
+        //创建部分容器
+        let boxlen=dom[i].children.length;
+        for(let j=0;j<boxlen;j++){
+            let doc=document.createDocumentFragment();
+            for(let k=0;k<32;k++){
+                let dom_line = document.createElement('div');//填充container
+                for(let x=0;x<4;x++){
+                    
+                    let line_box=document.createElement('div');//填充每一小格
+                    line_box.setAttribute("class","uk-flex uk-flex-1 box-cuts");
+                    
+                    dom_line.appendChild(line_box);
+                }
+                dom_line.setAttribute("class", "uk-flex uk-flex-1 uk-flex-column line-box");
+                    doc.appendChild(dom_line);
+            }
+                
+            
+            dom[i].children[j].appendChild(doc);
+        }
+       
+    }
+    for (let i = 0; i < tainlen; i++) {
+        //写入数字
+        for(let hop=1,n=0;hop<96;n++){
+            dom[i].getElementsByClassName("line-box")[hop].children[0].innerHTML=4*n+1;
+            dom[i].getElementsByClassName("line-box")[hop].children[1].innerHTML=4*n+2;
+            dom[i].getElementsByClassName("line-box")[hop].children[2].innerHTML=4*n+3;
+            dom[i].getElementsByClassName("line-box")[hop].children[3].innerHTML=4*n+4;
+            hop+=2;
+
+        }
+    }
+    for (let i = 0; i < tainlen; i++) {
+        //写入信号灯
+        for(let hop=0,n=0;hop<96;n++){
+            for(let loop=0;loop<4;loop++){
+                let light=document.createElement("span");
+                light.className="uk-badge";
+                light.addEventListener('mouseenter',function () {
+                    $(dom[1].getElementsByClassName("line-box")[2].children[3].children[0]).addClass("light-focus");
+                })
+                light.addEventListener('mouseleave',function () {
+                    $(dom[1].getElementsByClassName("line-box")[2].children[3].children[0]).removeClass("light-focus");
+                })
+                var oa=document.createAttribute("uk-tooltip");
+                light.attributes.setNamedItem(oa);
+                light.setAttribute("title",4*n+loop);
+                dom[i].getElementsByClassName("line-box")[hop].children[loop].appendChild(light);
+            }
+            
+            hop+=2;
+
+        }
+    }
+</script>
+<script>
+    /**
+     * 输出箭头click
+     */
+    let arrows=document.getElementById("out-lap-box").children[2].children;
+    for(let m=0;m<arrows.length;m++){
+        arrows[m].addEventListener('click',function () {
+            for(let m=0;m<arrows.length;m++){
+                $(arrows[m]).removeClass("uk-hint-paper")
+            }
+            $(this).addClass("uk-hint-paper");
+        })
+    }
+</script>-->
+
+@@include('import-common-js.html')
+<script src="../js/routing.js"></script>
+<script>
+    let x = 1
+    $("#toggle-passway").click(function () {
+        x += 1;
+        if (x % 2 == 0)
+            $("#toggle-passway").html('显示通道')
+        if (x % 2 != 0)
+            $("#toggle-passway").html('隐藏通道')
+
+        let maps = $("#right-top").find('.uk-card');
+        for (let i = 0; i < maps.length; i++) {
+            $(maps[i]).slideToggle('3000');
+        }
+    })
+</script>
+</body>
+</html>

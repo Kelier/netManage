@@ -1,0 +1,726 @@
+<div class="uk-flex">
+
+
+    <div class="uk-container uk-container-large uk-custom-container-addon uk-align-left">
+        <div class="uk-container uk-container-large uk-custom-container-inherit">
+            <ul class="uk-subnav uk-subnav-pill uk-subnav-custom" uk-switcher id="view-tab">
+                <li><a href="#">板卡视图</a></li>
+                <li><a href="#">通道视图</a></li>
+                <li><a href="#">表格视图</a></li>
+            </ul>
+
+            <ul class="uk-switcher uk-margin">
+
+                <li id="bankard">
+                    @@include('bankard.html')
+                </li>
+
+                <li id="passard">
+                    @@include('passard.html')
+                </li>
+
+                <li id="tabard">
+                    @@include('tabard.html')
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<!--板卡 in modal-->
+<div id="modal-card-in" class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h5 class="uk-heading-divider" style="width: 100%">板卡信息</h5>
+        <div class="uk-flex" id="cardbox-head">
+            <div class="uk-flex">卡板：业务1</div>
+            <div class="uk-flex">AMC：入1</div>
+            <div class="uk-flex">在位</div>
+        </div>
+        <div class="uk-flex" id="cardbox-body">
+            <div class="uk-flex" id="cardbox-left">
+                <div class="uk-flex" id="cardbox-left-title">
+                    <div class="uk-flex uk-flex-1">SFP</div>
+                    <div class="uk-flex uk-flex-1">FGPA</div>
+                </div>
+                <div class="uk-flex" id="cardbox-left-body">
+                    <div class="uk-flex" id="cardbox-leftbody-view">
+                        <div class="uk-flex uk-flex-1" id="cardbox-bodyview-left">
+                            <div class="uk-flex content">
+                                <div class="uk-flex uk-flex-1 code-flex">
+                                    <div class="uk-flex uk-flex-1">1</div>
+                                    <div class="uk-flex uk-flex-1">2</div>
+                                    <div class="uk-flex uk-flex-1">3</div>
+                                    <div class="uk-flex uk-flex-1">4</div>
+                                    <div class="uk-flex uk-flex-1">5</div>
+                                    <div class="uk-flex uk-flex-1">6</div>
+                                    <div class="uk-flex uk-flex-1">7</div>
+                                    <div class="uk-flex uk-flex-1">8</div>
+                                </div>
+                                <div class="uk-flex uk-flex-1 code-flex">
+                                    <div class="uk-flex uk-flex-1 code-box-flex">
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-flex uk-flex-1 code-flex sinfa">
+                                    IN
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-flex uk-flex-1" id="cardbox-bodyview-right">
+                            <div class="uk-flex content">
+                                <div class="card-band"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="uk-flex" id="cardbox-left-footer">
+                    <div class="uk-flex uk-flex-1" id="cardbox-leftfoot-status">
+                        <div class="uk-flex"><span class="uk-badge"></span>SDH</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>10Ge</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>未知</div>
+                    </div>
+                    <div class="uk-flex uk-flex-1" id="cardbox-rightfoot-status">
+                        <div class="uk-flex"><span class="uk-badge"></span>在位温度正常</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>在位温度异常</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>无信号</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>有警告</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>不在位</div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-flex uk-flex-column" id="cardbox-right">
+                <div class="uk-flex uk-flex-column" id="uk-top-lay">
+                    <div class="uk-flex">
+                        <h5>Signal</h5>
+                    </div>
+
+                    <div class="uk-flex" style="margin-top: 10px">
+                        <table class="uk-table uk-table-small uk-table-divider">
+                            <thead>
+                            <tr id="sign-pg-head">
+                                <th></th>
+                                <th>信号格式</th>
+                                <th>输入/输出</th>
+                                <th>光功率(dBm)</th>
+                                <th>LOF</th>
+                                <th>B1误码</th>
+                                <th>B2误码</th>
+                                <th>FCS误码</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>SDH</td>
+                                <td>输入</td>
+                                <td>-21.24</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>76</td>
+                                <td>无</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+
+                <div class="uk-flex" id="uk-bottom-lay">
+                    <div class="uk-flex uk-flex-1" id="uk-bottom-left">
+                        <h5 class="uk-heading-divider" style="width: 100%">SFP</h5>
+                        <table class="uk-table uk-table-small uk-table-divider">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>在位状态</th>
+                                <th>温度(℃)</th>
+                                <th>警告</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="uk-flex uk-flex-1" id="uk-bottom-right">
+                        <h5 class="uk-heading-divider" style="width: 100%">FPGA</h5>
+                        <table class="uk-table uk-table-small uk-table-divider">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>在位状态</th>
+                                <th>温度(℃)</th>
+                                <th>警告</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!--板卡 out modal-->
+<div id="modal-card" class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h5 class="uk-heading-divider" style="width: 100%">板卡信息</h5>
+        <div class="uk-flex" id="cardbox-head">
+            <div class="uk-flex">卡板：业务1</div>
+            <div class="uk-flex">AMC：入1</div>
+            <div class="uk-flex">在位</div>
+        </div>
+        <div class="uk-flex" id="cardbox-body">
+            <div class="uk-flex" id="cardbox-left">
+                <div class="uk-flex" id="cardbox-left-title">
+                    <div class="uk-flex uk-flex-1">SFP</div>
+                    <div class="uk-flex uk-flex-1">FGPA</div>
+                </div>
+                <div class="uk-flex" id="cardbox-left-body">
+                    <div class="uk-flex" id="cardbox-leftbody-view">
+                        <div class="uk-flex uk-flex-1" id="cardbox-bodyview-left">
+                            <div class="uk-flex content">
+                                <div class="uk-flex uk-flex-1 code-flex">
+                                    <div class="uk-flex uk-flex-1">1</div>
+                                    <div class="uk-flex uk-flex-1">2</div>
+                                    <div class="uk-flex uk-flex-1">3</div>
+                                    <div class="uk-flex uk-flex-1">4</div>
+                                    <div class="uk-flex uk-flex-1">5</div>
+                                    <div class="uk-flex uk-flex-1">6</div>
+                                    <div class="uk-flex uk-flex-1">7</div>
+                                    <div class="uk-flex uk-flex-1">8</div>
+                                </div>
+                                <div class="uk-flex uk-flex-1 code-flex">
+                                    <div class="uk-flex uk-flex-1 code-box-flex">
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                        <div class="uk-flex-1 uk-flex code-box">
+                                            <span class="uk-badge"></span>
+                                            <span class="uk-badge"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-flex uk-flex-1 code-flex sinfa">
+                                    IN
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-flex uk-flex-1" id="cardbox-bodyview-right">
+                            <div class="uk-flex content">
+                                <div class="card-band"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="uk-flex" id="cardbox-left-footer">
+                    <div class="uk-flex uk-flex-1" id="cardbox-leftfoot-status">
+                        <div class="uk-flex"><span class="uk-badge"></span>SDH</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>10Ge</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>未知</div>
+                    </div>
+                    <div class="uk-flex uk-flex-1" id="cardbox-rightfoot-status">
+                        <div class="uk-flex"><span class="uk-badge"></span>在位温度正常</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>在位温度异常</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>无信号</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>有警告</div>
+                        <div class="uk-flex"><span class="uk-badge"></span>不在位</div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-flex uk-flex-column" id="cardbox-right">
+                <div class="uk-flex uk-flex-column" id="uk-top-lay">
+                    <div class="uk-flex">
+                        <h5>Signal</h5>
+                        <input type="checkbox" class="checkbox-switch"/>
+                    </div>
+                    
+                    <div class="uk-flex" style="margin-top: 10px">
+                        <table class="uk-table uk-table-small uk-table-divider">
+                           <thead>
+                           <tr id="sign-pg-head">
+                               <th></th>
+                               <th>信号格式</th>
+                               <th>输入/输出</th>
+                               <th>光功率(dBm)</th>
+                               <th>LOF</th>
+                               <th>B1误码</th>
+                               <th>B2误码</th>
+                               <th>FCS误码</th>
+                               <th>打开/关闭</th>
+                           </tr>
+                           </thead>
+                           <tbody id="sign-pg-body">
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-1"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-2"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-3"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-4"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-5"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-6"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-7"/></td>
+                           </tr>
+                           <tr>
+                               <td>1</td>
+                               <td>SDH</td>
+                               <td>输入</td>
+                               <td>-21.24</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>76</td>
+                               <td>无</td>
+                               <td><input type="checkbox" class="checkbox-switch" id="td-switch-8"/></td>
+                           </tr>
+                           </tbody>
+                       </table>
+                    </div>
+                       
+                    
+                </div>
+
+                <div class="uk-flex" id="uk-bottom-lay">
+                    <div class="uk-flex uk-flex-1" id="uk-bottom-left">
+                        <h5 class="uk-heading-divider" style="width: 100%">SFP</h5>
+                        <table class="uk-table uk-table-small uk-table-divider">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>在位状态</th>
+                                <th>温度(℃)</th>
+                                <th>警告</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="uk-flex uk-flex-1" id="uk-bottom-right">
+                        <h5 class="uk-heading-divider" style="width: 100%">FPGA</h5>
+                        <table class="uk-table uk-table-small uk-table-divider">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>在位状态</th>
+                                <th>温度(℃)</th>
+                                <th>警告</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>在位</td>
+                                <td>10</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!--新建交叉modal-->
+<div id="creBranch" class="uk-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h5 class="uk-heading-divider">新建交叉</h5>
+        <div class="uk-flex flex-start-margin">
+            <div class="uk-flex uk-flex-1">
+                <div class="uk-flex-1 uk-flex-column">
+                    <div class="uk-flex flex-height-small">速率</div>
+                    <div class="uk-flex flex-height-small"><br></div>
+                    <div class="uk-flex flex-height-small">业务卡</div>
+                    <div class="uk-flex flex-height-small">AMC</div>
+                    <div class="uk-flex flex-height-small">VC_64</div>
+                    <div class="uk-flex flex-height-small">VC_16C</div>
+                    <div class="uk-flex flex-height-small">VC_4C</div>
+                    <div class="uk-flex flex-height-small">AU_VC</div>
+                    <div class="uk-flex flex-height-small">TU_AU12</div>
+                </div>
+                <div class="uk-flex-1 uk-flex-column">
+                    <div class="uk-flex">
+                        <select class="uk-select">
+                            <option value="1"></option>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+                    <div class="uk-flex flex-height-small"><strong>输入</strong></div>
+                    <div class="uk-flex">
+                        <select class="uk-select">
+                            <option value="1"></option>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+                    <div class="uk-flex"><select class="uk-select">
+                        <option value="1"></option>
+                        <option value="1"></option>
+                    </select></div>
+                    <div class="uk-flex"><select class="uk-select">
+                        <option value="1"></option>
+                        <option value="1"></option>
+                    </select></div>
+                    <div class="uk-flex"><select class="uk-select">
+                        <option value="1"></option>
+                        <option value="1"></option>
+                    </select></div>
+                    <div class="uk-flex"><select class="uk-select">
+                        <option value="1"></option>
+                        <option value="1"></option>
+                    </select></div>
+                    <div class="uk-flex"><input class="uk-input" type="text" placeholder="Input"></div>
+                    <div class="uk-flex"><input class="uk-input" type="text" placeholder="Input"></div>
+                </div>
+            </div>
+            <div class="uk-flex uk-flex-1 uk-flex-column">
+                <div class="uk-flex" style="height: 40px;">
+                    <br>
+                </div>
+                <div class="uk-flex flex-height-small"><strong>输出</strong></div>
+                <div class="uk-flex">
+                    <select class="uk-select">
+                        <option value="1"></option>
+                        <option value="1"></option>
+                    </select>
+                </div>
+                <div class="uk-flex"><select class="uk-select">
+                    <option value="1"></option>
+                    <option value="1"></option>
+                </select></div>
+                <div class="uk-flex"><select class="uk-select">
+                    <option value="1"></option>
+                    <option value="1"></option>
+                </select></div>
+                <div class="uk-flex"><select class="uk-select">
+                    <option value="1"></option>
+                    <option value="1"></option>
+                </select></div>
+                <div class="uk-flex"><select class="uk-select">
+                    <option value="1"></option>
+                    <option value="1"></option>
+                </select></div>
+                <div class="uk-flex"><input class="uk-input" type="text" placeholder="Input"></div>
+                <div class="uk-flex"><input class="uk-input" type="text" placeholder="Input"></div>
+            </div>
+        </div>
+        <div class="uk-flex flex-normal-margin">
+            <button class="uk-button uk-button-primary ">保存新建</button>
+        </div>
+
+    </div>
+</div>
+
+<!--通道时隙modal-->
+<div id="pass-card" class="uk-modal uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h5 class="uk-heading-divider">通道</h5>
+        <div class="uk-flex flex-start-margin">
+            <span>卡板：业务1</span>
+            <span>AMC:入1</span>
+            <span>在位</span>
+        </div>
+        <div class="uk-flex flex-start-margin" style="justify-content: center">
+            一级时隙
+        </div>
+        <div class="uk-flex flex-start-margin" id="time-slot">
+            <div class="uk-flex uk-flex-column">
+                <div class="uk-flex uk-flex-1">1</div>
+                <div class="uk-flex uk-flex-1">2</div>
+                <div class="uk-flex uk-flex-1">3</div>
+                <div class="uk-flex uk-flex-1">4</div>
+                <div class="uk-flex uk-flex-1">5</div>
+                <div class="uk-flex uk-flex-1">6</div>
+                <div class="uk-flex uk-flex-1">7</div>
+                <div class="uk-flex uk-flex-1">8</div>
+            </div>
+            <div class="uk-flex uk-flex-column">
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+                <div class="uk-flex uk-flex-1"><span class="uk-badge"></span></div>
+            </div>
+            <div class="uk-flex uk-flex-column">
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+                <div class="uk-flex">
+                    <div class="uk-flex"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-flex" id="way-root-status">
+            <div><span class="uk-badge"></span> AU_VC</div>
+            <div><span class="uk-badge"></span> VC_64C</div>
+            <div><span class="uk-badge"></span> VC_16C</div>
+            <div><span class="uk-badge"></span> VC_4C</div>
+            <div><span class="uk-badge"></span> 不在位</div>
+        </div>
+    </div>
+</div>

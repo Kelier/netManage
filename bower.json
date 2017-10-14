@@ -1,0 +1,22 @@
+{
+  "name": "MainCreate",
+  "authors": [
+    "kelier <635073826@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "uikit": "^3.0.0-beta.30",
+    "requirejs": "^2.3.5"
+  }
+}
